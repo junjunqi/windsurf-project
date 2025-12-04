@@ -1,0 +1,6 @@
+{
+  "envId": "{{envId}}",
+  "functionRoot": "./functions",
+  "storageRoot": "./storage",
+  "region": "ap-shanghai"
+}

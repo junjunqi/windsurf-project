@@ -1,0 +1,16 @@
+{
+  "name": "alipay-payment-demo",
+  "version": "1.0.0",
+  "description": "支付宝支付沙箱测试页面",
+  "main": "pay.html",
+  "scripts": {
+    "start": "serve .",
+    "build": "echo 'No build needed for static HTML'"
+  },
+  "keywords": ["alipay", "payment", "demo"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

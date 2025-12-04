@@ -1,0 +1,28 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JSAPI 沙箱测试</title>
+  <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+</head>
+<body>
+
+<button id="payBtn">发起支付</button>
+
+<script>
+document.getElementById("payBtn").onclick = function () {
+    // 检测是否在支付宝环境
+    if (typeof AlipayJSBridge === 'undefined') {
+        alert('请在支付宝环境中打开此页面');
+        return;
+    }
+    
+    AlipayJSBridge.call('tradePay', {
+        tradeNO: "2025120322001432430507670709"
+    }, function (result) {
+        alert(JSON.stringify(result));
+    });
+};
+</script>
+
+</body>
+</html>

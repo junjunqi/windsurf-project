@@ -16,12 +16,20 @@ document.getElementById("payBtn").onclick = function () {
         return;
     }
     
-    AlipayJSBridge.call('tradePay', {
-        tradeNO: "2025120322001432430507670709"
-    }, function (result) {
-        alert(JSON.stringify(result));
-    });
+    // 延迟执行支付，避免页面加载时自动触发
+    setTimeout(function() {
+        AlipayJSBridge.call('tradePay', {
+            tradeNO: "2025120422001432430507677347"
+        }, function (result) {
+            alert(JSON.stringify(result));
+        });
+    }, 100);
 };
+
+// 等待AlipayJSBridge准备就绪
+document.addEventListener('AlipayJSBridgeReady', function() {
+    console.log('AlipayJSBridge已准备就绪');
+}, false);
 </script>
 
 </body>

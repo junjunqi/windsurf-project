@@ -2,5 +2,9 @@
   "envId": "{{envId}}",
   "functionRoot": "./functions",
   "storageRoot": "./storage",
-  "region": "ap-shanghai"
+  "region": "ap-shanghai",
+  "staticHosting": {
+    "index": "pay.html",
+    "error": "pay.html"
+  }
 }

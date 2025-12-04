@@ -2,13 +2,19 @@
 <head>
   <meta charset="utf-8">
   <title>JSAPI 沙箱测试</title>
-  <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js"></script>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script src="https://gw.alipayobjects.com/as/g/h5-lib/alipayjsapi/3.1.1/alipayjsapi.inc.min.js?v=20251204"></script>
 </head>
 <body>
 
 <button id="payBtn">发起支付</button>
 
 <script>
+// 添加版本控制，避免缓存问题
+const VERSION = new Date().getTime();
+
 document.getElementById("payBtn").onclick = function () {
     // 检测是否在支付宝环境
     if (typeof AlipayJSBridge === 'undefined') {
@@ -16,10 +22,13 @@ document.getElementById("payBtn").onclick = function () {
         return;
     }
     
+    // 显示当前版本号，便于调试
+    console.log('当前版本:', VERSION);
+    
     // 延迟执行支付，避免页面加载时自动触发
     setTimeout(function() {
         AlipayJSBridge.call('tradePay', {
-            tradeNO: "2025120422001432430507677347"
+            tradeNO: "2025120422001432430507678497"
         }, function (result) {
             alert(JSON.stringify(result));
         });
@@ -28,7 +37,7 @@ document.getElementById("payBtn").onclick = function () {
 
 // 等待AlipayJSBridge准备就绪
 document.addEventListener('AlipayJSBridgeReady', function() {
-    console.log('AlipayJSBridge已准备就绪');
+    console.log('AlipayJSBridge已准备就绪，版本:', VERSION);
 }, false);
 </script>
 
